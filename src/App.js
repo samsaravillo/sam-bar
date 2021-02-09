@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Progress from './components/progress';
+class App extends Component {
+  state = {
+    buttons: [40, 33, -17, -30],
+    bars: [69, 31, 69],
+    limit: 100,
+  };
+  
+  render() { 
+    return (  <main className="container">
+    <h1>Progress Bar</h1>
+    <Progress />
+  </main> );
+  }
 }
 
 export default App;
