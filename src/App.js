@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import Progress from './components/progress';
 class App extends Component {
   state = {
-    buttons: [40, 33, -17, -30],
-    bars: [69, 31, 69],
-    limit: 100,
+    data: []
   };
   
+async componentDidMount() {
+  const { data } = await axios.get("http://pb-api.herokuapp.com/bars");
+  console.log(data);
+  this.setState({data});
+}
+
   render() { 
     return (  <main className="container">
     <h1>Progress Bar</h1>
@@ -15,5 +20,4 @@ class App extends Component {
   </main> );
   }
 }
-
 export default App;
