@@ -1,11 +1,12 @@
 import React from "react";
 
-const Progress = () => {
+const Progress = (props) => {
+  const { bars } = props;
   return (
     <div>
-      <div>Bar 1 </div>
-      <div>Bar 2</div>
-      <div>Bar 3 </div>
+      {bars && bars.length > 0
+        ? bars.map((item) => <div key={item}>{item}</div>)
+        : "Loading..."}
       <br />
       <br />
       <button>-25</button>
