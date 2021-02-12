@@ -1,18 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Progress = (props) => {
-  const { bars } = props;
+  console.log(props);
+  const { value, limit } = props;
+
+  const progressVal = value;
+  const bgcolor = "#4EAFC9";
+
+  const containerStyles = {
+    height: 30,
+    width: "100%",
+    backgroundColor: "#e0e0de",
+    borderRadius: 10,
+    marginTop: 20,
+    marginBottom: 20,
+    position: "relative",
+    overflow: "hidden",
+  };
+
+  const fillerStyles = {
+    height: "100%",
+    width: `${progressVal}%`,
+    backgroundColor: bgcolor,
+    borderRadius: "inherit",
+    textAlign: "right",
+  };
+
+  const labelStyles = {
+    padding: 5,
+    color: "white",
+    fontWeight: "bold",
+  };
+
   return (
-    <div>
-      {bars && bars.length > 0
-        ? bars.map((item) => <div key={item}>{item}</div>)
-        : "Loading..."}
-      <br />
-      <br />
-      <button>-25</button>
-      <button>-10</button>
-      <button>10</button>
-      <button>25</button>
+    <div style={containerStyles}>
+      <div className="progVal">{`${progressVal}%`}</div>
+      <div style={fillerStyles}>
+        <span style={labelStyles}></span>
+      </div>
     </div>
   );
 };
