@@ -19,3 +19,32 @@ code {
   text-align: center;
   width: 100%;
 }
+
+.barColorBlue {
+  background-color: #4eafc9;
+}
+
+.barColorRed {
+  background-color: #ff0000;
+}
+
+.barContainer {
+  height: 30px;
+  width: 100%;
+  background-color: #e0e0de;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.barColorStyle {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.barLabel {
+  padding: 5px;
+  font-weight: bold;
+}

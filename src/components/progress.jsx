@@ -1,42 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Progress = (props) => {
-  console.log(props);
   const { value, limit } = props;
-
   const progressVal = value;
-  const bgcolor = "#4EAFC9";
-
-  const containerStyles = {
-    height: 30,
-    width: "100%",
-    backgroundColor: "#e0e0de",
-    borderRadius: 10,
-    marginTop: 20,
-    marginBottom: 20,
-    position: "relative",
-    overflow: "hidden",
-  };
 
   const fillerStyles = {
-    height: "100%",
     width: `${progressVal}%`,
-    backgroundColor: bgcolor,
-    borderRadius: "inherit",
-    textAlign: "right",
+    transition: "0.5s",
   };
 
-  const labelStyles = {
-    padding: 5,
-    color: "white",
-    fontWeight: "bold",
-  };
+  let barLimitClass = "barColorStyle ";
+  barLimitClass += value === limit ? "barColorRed" : "barColorBlue";
 
   return (
-    <div style={containerStyles}>
+    <div className="barContainer">
       <div className="progVal">{`${progressVal}%`}</div>
-      <div style={fillerStyles}>
-        <span style={labelStyles}></span>
+      <div style={fillerStyles} className={barLimitClass}>
+        <span className="barLabel"></span>
       </div>
     </div>
   );
